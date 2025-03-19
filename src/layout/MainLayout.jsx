@@ -6,15 +6,17 @@ import MainSection from "../components/MainSection/MainSection";
 
 const MainLayout = () => {
   return (
-    <div className="space-y-4 ">
+    <div className="">
       <header className="  bg-[#244135]">
-        <nav className="w-11/12 mx-auto border border-red-500">
+        <nav className="w-11/12 mx-auto">
           <NavBar></NavBar>
         </nav>
       </header>
-      <main className="border border-yellow-500 w-11/12 mx-auto">
+
+      <main className="relative -top-1">
         <MainSection></MainSection>
       </main>
+
       <footer className=" bg-[#f1f7fa]">
         <section className="border border-green-500 w-11/12 mx-auto">
           <Footer></Footer>

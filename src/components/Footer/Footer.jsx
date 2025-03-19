@@ -1,4 +1,5 @@
-
+import SocialMediaIcon from "../MediaIcon/SocialMediaIcon";
+import { FaRegCopyright } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -22,6 +23,7 @@ const Footer = () => {
             </h3>
           </div>
           <p className="font-roboto-body text-base text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A vero placeat magni harum dolore ipsum ipsa? Rem, voluptatum distinctio! Aspernatur.</p>
+          <SocialMediaIcon></SocialMediaIcon>
         </div>
         <div className="lg:w-[70%] sm:grid sm:grid-cols-2 sm:gap-6  lg:flex lg:justify-between ">
           <div className="sm:text-center lg:text-start">
@@ -65,7 +67,7 @@ const Footer = () => {
       </div>
       <div className="text-md font-poppins-specialEle font-normal text-gray-500 text-center lg:text-start lg:flex">
         <div className="flex-1 mb-4 lg:mb-0">
-          <p>©️ 2025 All Right Reserved.</p>
+          <p className="flex items-center gap-2 justify-center lg:justify-normal"><FaRegCopyright></FaRegCopyright> 2025 All Right Reserved.</p>
         </div>
         <ul className="sm:flex sm:justify-around lg:justify-between flex-1 ">
           <li><a href="">Privacy Policy</a></li>
