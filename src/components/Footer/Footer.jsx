@@ -11,14 +11,14 @@ const Footer = () => {
             <h3>
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                 <rect width="32" height="32" fill="#244135" />
-                <text x="4" y="24" font-family="Lora, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">FE</text>
+                <text x="4" y="24" fontFamily="Lora, sans-serif" fontSize="16" fontWeight="bold" fill="#FFFFFF">FE</text>
               </svg>
             </h3>
             <h3>
               <svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-                <text x="10" y="35" font-family="Lora, sans-serif" font-size="30" font-weight="bold" fill="#244135">Futur</text>
-                <text x="100" y="35" font-family="Lora, sans-serif" font-size="30" font-weight="bold" fill="#244135">Edge</text>
-                <line x1="10" y1="40" x2="180" y2="40" stroke="#FFA500" stroke-width="3" />
+                <text x="10" y="35" fontFamily="Lora, sans-serif" fontSize="30" fontWeight="bold" fill="#244135">Futur</text>
+                <text x="100" y="35" fontFamily="Lora, sans-serif" fontSize="30" fontWeight="bold" fill="#244135">Edge</text>
+                <line x1="10" y1="40" x2="180" y2="40" stroke="#FFA500" strokeWidth="3" />
               </svg>
             </h3>
           </div>
