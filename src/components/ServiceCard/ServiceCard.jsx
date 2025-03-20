@@ -1,8 +1,7 @@
 import React from "react";
 
 const ServiceCard = ({ service }) => {
-  console.log(service.service_name
-);
+
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300">
       <img
@@ -23,7 +22,7 @@ const ServiceCard = ({ service }) => {
           </p>
         </div>
 
-        <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+        <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer">
           Learn More
         </button>
       </div>

@@ -4,12 +4,14 @@ import { useContext, useState } from "react";
 import { FDataContext } from "../../context/Context"
 import USPCard from "../../components/USPCard/USPCard"
 import ServiceCard from "../../components/ServiceCard/ServiceCard"
+import SliderCard from "../../components/SliderCard/SliderCard";
+
 
 
 const Home = () => {
   const fakeData = useContext(FDataContext);
 
-  const [UniquePCards, setUniquePCards] = useState(fakeData?.data?.USP.slice(0, 4) || [])
+  const [UniquePCards, setUniquePCards] = useState(fakeData?.data?.USP.slice(0, 5) || [])
 
   // console.log(UniquePCards);
   // console.log(USPCardData);
@@ -30,7 +32,7 @@ const Home = () => {
         </div>
       </section>
       {/* Unique selling points */}
-      <section className="mt-16 w-11/12 mx-auto border">
+      <section className="relative top-48 w-11/12 mx-auto">
         <div className="flex justify-between items-center mb-20 gap-4">
           <h2 className="text-2xl lg:text-3xl font-lora-heading font-medium ">Our Unique <br />Selling Points </h2>
           <div className="">
@@ -46,7 +48,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className={`${UniquePCards.length > 4 ? "lg:grid-cols-4 " : " lg:grid-cols-3 "} grid sm:grid-cols-2 gap-6`}>
+        <div className={`${UniquePCards.length > 5 ? "lg:grid-cols-4 " : " lg:grid-cols-5 "} grid sm:grid-cols-2 gap-6`}>
           {
             UniquePCards.map((SCard) => <USPCard
               key={SCard.id}
@@ -58,8 +60,13 @@ const Home = () => {
         </div>
       </section>
 
+      {/* slider */}
+      <section className="py-16 mt-48 bg-[#244135]  mx-6 rounded-2xl relative -bottom-52">
+        <SliderCard></SliderCard>
+      </section>
+
       {/*  Services */}
-      <section className="mt-24 border bg-[#e9f3f0]">
+      <section className="pt-96 pb-32 border bg-[#e9f3f0]">
         <div className="w-11/12 mx-auto">
           <div className="text-center space-y-6">
             <h2 className="font-lora-heading text-2xl lg:text-4xl font-bold">Services Offered By FuturEdge</h2>

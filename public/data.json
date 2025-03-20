@@ -95,7 +95,7 @@
       "impact": "Increases career satisfaction and long-term growth.",
       "benefits": "A roadmap customized to individual aspirations.",
       "applicability": "Ideal for fresh graduates and professionals seeking direction.",
-      "icon" :"https://i.ibb.co.com/0V2GNzzx/guidances.png"
+      "icon": "https://i.ibb.co.com/0V2GNzzx/guidances.png"
     },
     {
       "id": 3,
@@ -104,7 +104,7 @@
       "impact": "Access to knowledge from industry leaders.",
       "benefits": "Insights from experts who understand hiring trends.",
       "applicability": "Beneficial for job seekers and career changers.",
-      "icon":"https://i.ibb.co.com/7tDW9ZjC/consulting.png"
+      "icon": "https://i.ibb.co.com/7tDW9ZjC/consulting.png"
     },
     {
       "id": 4,
@@ -131,7 +131,44 @@
       "impact": "Ensures long-term career success.",
       "benefits": "Prepares individuals for future career advancements.",
       "applicability": "Useful for ambitious professionals and leaders.",
-      "icon":"https://i.ibb.co.com/xtP8MH6v/long-term.png"
+      "icon": "https://i.ibb.co.com/xtP8MH6v/long-term.png"
+    }
+  ],
+  "sliders": [
+    {
+      "id": 1,
+      "quote": "The only way to do great work is to love what you do.",
+      "name": "Steve Jobs",
+      "position": "Co-founder of Apple Inc.",
+      "image": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      "id": 2,
+      "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "name": "Winston Churchill",
+      "position": "Former Prime Minister of the UK",
+      "image": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      "id": 3,
+      "quote": "Your time is limited, so don’t waste it living someone else’s life.",
+      "name": "Steve Jobs",
+      "position": "Co-founder of Apple Inc.",
+      "image": "https://randomuser.me/api/portraits/men/45.jpg"
+    },
+    {
+      "id": 4,
+      "quote": "Opportunities don't happen. You create them.",
+      "name": "Chris Grosser",
+      "position": "Entrepreneur",
+      "image": "https://randomuser.me/api/portraits/men/50.jpg"
+    },
+    {
+      "id": 5,
+      "quote": "It does not matter how slowly you go as long as you do not stop.",
+      "name": "Confucius",
+      "position": "Chinese Philosopher",
+      "image": "https://randomuser.me/api/portraits/women/51.jpg"
     }
   ]
 }
