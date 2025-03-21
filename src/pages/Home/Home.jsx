@@ -13,12 +13,9 @@ const Home = () => {
 
   const [UniquePCards, setUniquePCards] = useState(fakeData?.data?.USP.slice(0, 5) || [])
 
-  // console.log(UniquePCards);
-  // console.log(USPCardData);
 
   const handleUSP = () => {
     const UCard = fakeData?.data?.USP;
-    console.log(UCard);
     setUniquePCards([...UCard])
   }
 

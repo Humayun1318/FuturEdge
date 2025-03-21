@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
 
@@ -9,7 +10,7 @@ const ServiceCard = ({ service }) => {
         alt={service.service_name}
         className="w-full h-48 object-cover"
       />
-      <div className="p-4">
+      <div className="p-4 flex flex-col justify-between">
         <h2 className="text-xl font-semibold text-gray-800">{service.service_name}</h2>
         <p className="text-sm text-gray-500">{service.category}</p>
 
@@ -22,9 +23,10 @@ const ServiceCard = ({ service }) => {
           </p>
         </div>
 
-        <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer">
+        <Link className="mt-4 w-full bg-blue-500 text-white py-2 px-2 rounded-lg hover:bg-blue-700 transition duration-300 cursor-pointer font-poppins-specialEle text-center"
+        to={`/service-details/${service.id}`}>
           Learn More
-        </button>
+        </Link>
       </div>
     </div>
   );

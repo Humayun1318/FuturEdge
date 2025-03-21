@@ -4,7 +4,7 @@ import MainLayout from "./layout/MainLayout";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import Profile from "./pages/Profile/Profile";
-
+import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+      },
+      {
+        path: "service-details/:id",
+        element: <ServiceDetails></ServiceDetails>,
       }
     ]
   },

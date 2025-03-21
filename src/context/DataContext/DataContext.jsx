@@ -7,13 +7,13 @@ const DataContext = ({ children }) => {
  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('data.json')
+    fetch('/data.json')
       .then(re => re.json())
       .then(data => {
         setFakeData(data)
         setLoading(false)
       })
-      .catch(err => console.log("Data fetch ERROR:", err))
+      .catch(err => console.log("Data Fetch ERROR:", err))
   }, [])
    
   if (loading) {
@@ -21,7 +21,9 @@ const DataContext = ({ children }) => {
   }
   const dataContext = {
     name: 'rasel',
-    data: {...fakeData},
+    data: { ...fakeData },
+    loading,
+    setLoading
 }
 
 console.log(dataContext);
