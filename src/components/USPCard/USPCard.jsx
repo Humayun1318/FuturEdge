@@ -13,7 +13,9 @@ const USPCard = ({ SCard }) => {
 
       <h3 className="my- font-lora-heading text-lg font-medium">{SCard?.title}</h3>
       
-      <Link className="text-md text-xs text-gray-500">Read more
+      <Link className="text-md text-xs text-gray-500"
+       to={`usp-details/${SCard.id}`}
+      >Read more
         <MdKeyboardDoubleArrowRight className="inline-block ml-3" />
       </Link>
     </div>

@@ -42,18 +42,18 @@ const ServiceDetails = () => {
     setError('')
   }
 
-  const handleReply = () => (
-    <textarea
-      value={newComment}
-      onChange={(e) => {
-        setNewComment(e.target.value)
-      }}
-      placeholder="Share your experience or feedback..."
-      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 text-2xl"
-      rows='3'
-    >
-    </textarea>
-  )
+  // const handleReply = () => (
+  //   <textarea
+  //     value={newComment}
+  //     onChange={(e) => {
+  //       setNewComment(e.target.value)
+  //     }}
+  //     placeholder="Share your experience or feedback..."
+  //     className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 text-2xl"
+  //     rows='3'
+  //   >
+  //   </textarea>
+  // )
   useEffect(() => {
     if (data?.services?.length) {
       const selectedService = data.services.find((ser) => ser.id === Number(id));

@@ -5,6 +5,7 @@ import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import Profile from "./pages/Profile/Profile";
 import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
+import USPDetails from "./pages/USPCardDetails/USPDetails";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "service-details/:id",
         element: <ServiceDetails></ServiceDetails>,
+      },
+      {
+        path: "usp-details/:id",
+        element: <USPDetails></USPDetails>,
       }
     ]
   },
