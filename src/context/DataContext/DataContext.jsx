@@ -17,13 +17,11 @@ const DataContext = ({ children }) => {
   }, [])
    
   if (loading) {
-    return <p>loading.............</p>
+    return 
   }
   const dataContext = {
-    name: 'rasel',
     data: { ...fakeData },
     loading,
-    setLoading
 }
 
 console.log(dataContext);

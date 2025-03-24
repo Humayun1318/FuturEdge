@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NavLinks from "../NavLink/NavLinks";
 
 
@@ -27,7 +28,9 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end  font-poppins-specialEle text-lg font-bold">
-          <a className="cursor-pointer p-1 rounded hover:bg-gray-500 duration-500">Login</a>
+          <Link
+            to={"/auth/login"}
+            className="cursor-pointer p-1 rounded hover:bg-gray-500 duration-500">Login</Link>
         </div>
       </div>
     </div>

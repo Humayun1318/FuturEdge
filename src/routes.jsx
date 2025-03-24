@@ -6,6 +6,7 @@ import Register from "./pages/Auth/Register";
 import Profile from "./pages/Profile/Profile";
 import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 import USPDetails from "./pages/USPCardDetails/USPDetails";
+import PrivateRoute from "./private/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -22,21 +23,29 @@ const router = createBrowserRouter([
       },
       {
         path: "service-details/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: (
+          <PrivateRoute>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "usp-details/:id",
-        element: <USPDetails></USPDetails>,
+        element: (
+          <PrivateRoute>
+            <USPDetails></USPDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "auth/register",
+        element: <Register></Register>,
       }
     ]
-  },
-  {
-    path: "/auth/login",
-    element: <Login></Login>,
-  },
-  {
-    path: "/auth/register",
-    element: <Register></Register>,
   },
   {
     path: "*",
