@@ -1,20 +1,40 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaGoogle, FaGithub, FaLock, FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/Context';
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: "humayunkabir6267@gmail.com",
-    password: "12345"
-  });
+  const [formData, setFormData] = useState({});
+  // const [loading, setLoading] = useState(false)
+
+  const navigate = useNavigate()
+
+  const { signInUserWithEmailPassword, setUser, loading, setLoading } = useContext(AuthContext)
+
+  
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
+    
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     setFormData({ ...formData, email: email, password: password })
+
+    signInUserWithEmailPassword(email, password)
+      .then(re => {
+        setUser(re.user);
+        toast.success("Login successfully!", { position: "top-center" })
+        navigate('/')
+        setLoading(false)
+      })
+      .catch(err => {
+        toast.error(err.message ? err.message : "Login failed, try again!", { position: "top-center" })
+        setLoading(false)
+     })
     
     
   }
@@ -143,8 +163,7 @@ const Login = () => {
                       text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
                       `}
           >
-            {/* {loading ? 'Signing in...' : 'Sign in'} */}
-            Sign in
+            {loading ? 'Signing in...' : 'Sign in' }
           </button>
 
           <div className="text-center text-sm text-gray-600">

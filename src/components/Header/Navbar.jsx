@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import NavLinks from "../NavLink/NavLinks";
+import { useContext } from "react";
+import { AuthContext } from "../../context/Context";
 
 
 const NavBar = () => {
+  
+
+  
+
+
+  const { user } = useContext(AuthContext)
+  console.log(user);
 
   return (
     <div>
@@ -28,9 +37,23 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end  font-poppins-specialEle text-lg font-bold">
-          <Link
-            to={"/auth/login"}
-            className="cursor-pointer p-1 rounded hover:bg-gray-500 duration-500">Login</Link>
+          {
+            user ? (
+              <div>
+                <h2></h2>
+                <button>
+                  Logout
+                </button>
+
+              </div>
+            ) :
+              (
+                <Link
+                  to={"/auth/login"}
+                  className="cursor-pointer p-1 rounded hover:bg-gray-500 duration-500">Login
+                </Link>
+              )
+          }
         </div>
       </div>
     </div>

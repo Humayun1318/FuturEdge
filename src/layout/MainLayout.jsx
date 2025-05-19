@@ -1,4 +1,5 @@
 
+import { ToastContainer } from "react-toastify";
 import Footer from "../components/Footer/Footer";
 import NavBar from "../components/Header/NavBar";
 import MainSection from "../components/MainSection/MainSection";
@@ -22,6 +23,7 @@ const MainLayout = () => {
           <Footer></Footer>
         </section>
       </footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

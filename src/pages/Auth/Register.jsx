@@ -1,8 +1,52 @@
+import { useContext, useState } from 'react';
 import { FaGoogle, FaGithub, FaLock, FaEnvelope, FaEye, FaEyeSlash, FaUser, FaImage } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/Context';
+import { toast } from 'react-toastify';
 
 const Register = () => {
+  const [registerFormData, setRegisterFormData] = useState({})
+  const [errors, setErrors] = useState({})
+  const [loading, setLoading] = useState(false)
 
+  const navigate = useNavigate()
+
+  const { createUserWithEmailPassword, setUser } = useContext(AuthContext)
+
+
+  const handleSubmitRegister = (e) => {
+    e.preventDefault()
+    setLoading(true)
+
+    const form = e.target;
+    const name = form.name.value;
+    if (name.length < 5) {
+      setErrors({ ...errors, name: "Name must be at least 5 characters!" })
+      return;
+    }
+    const email = form.email.value;
+    const photoURL = form.photoURL.value;
+    const password = form.password.value;
+    if (password?.length < 6) {
+      return setErrors({ ...errors, password: "password must be at least 6!"})
+    }
+
+    createUserWithEmailPassword(email, password)
+      .then(re => {
+        setUser(re.user)
+        toast.success("User created successfully!!")
+        navigate("/")
+        setLoading(false)
+      })
+      .catch((error) => {
+        toast.error(error ? error.message : "Failed to register the user!", { position: "top-center", })
+        setLoading(false)
+      });
+
+    setRegisterFormData({ name, email, photoURL, password })
+    setErrors({})
+  }
+ 
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -48,7 +92,7 @@ const Register = () => {
         </div>
 
         {/* Form */}
-        <form className="mt-6 space-y-6">
+        <form className="mt-6 space-y-6" onSubmit={handleSubmitRegister}>
 
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -61,14 +105,16 @@ const Register = () => {
                 name="name"
                 type="text"
                 // autoComplete="name"
-                // value={formData.name}
-                // onChange={}
+                value={registerFormData?.name}
+                onChange={(e) => (
+                  setRegisterFormData({ ...registerFormData, name: e.target.value })
+                )}
                 className={`w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none 
                           `}
               />
-              {/* {errors.name && (
-                <p className="mt-1 text-sm text-red-600">{errors.name}</p>
-              )} */}
+              {errors.name && (
+                <p className="mt-1 text-sm text-red-600 absolute">{errors.name}</p>
+              )}
             </div>
           </div>
 
@@ -83,8 +129,10 @@ const Register = () => {
                 name="email"
                 type="email"
                 autoComplete="email"
-                // value={}
-                // onChange={}
+                value={registerFormData?.email}
+                onChange={(e) => (
+                  setRegisterFormData({ ...registerFormData, email: e.target.value })
+                )}
                 className={`w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none 
                          `}
               />
@@ -105,8 +153,10 @@ const Register = () => {
                 name="photoURL"
                 type="url"
                 autoComplete="photo"
-                // value={}
-                // onChange={}
+                value={registerFormData?.photoURL}
+                onChange={(e) => (
+                  setRegisterFormData({ ...registerFormData, photoURL: e.target.value })
+                )}
                 className={`w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none 
                           `}
                 placeholder="https://example.com/photo.jpg"
@@ -126,23 +176,32 @@ const Register = () => {
               <input
                 id="password"
                 name="password"
-                // type={}
+                type={registerFormData?.showPassword ? "text" : "password"}
                 autoComplete="new-password"
-                // value={}
-                // onChange={}
+                value={registerFormData?.password}
+                onChange={(e) => (
+                  setRegisterFormData({ ...registerFormData, password: e.target.value })
+                )}
                 className={`w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none 
                           `}
               />
               <button
                 type="button"
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-500"
-                // onClick={}
+                onClick={() => {
+                  setRegisterFormData({ ...registerFormData, showPassword: !(registerFormData?.showPassword) })
+                  console.log(registerFormData.showPassword)
+              }}
               >
-                {/* {formData.showPassword ? <FaEyeSlash className="h-5 w-5" /> : <FaEye className="h-5 w-5" />} */}
+                {
+                  registerFormData.showPassword ?
+                  <FaEyeSlash className="h-5 w-5" /> :
+                  <FaEye className="h-5 w-5" />
+                }
               </button>
-              {/* {errors.password && (
-                <p className="mt-1 text-sm text-red-600">{errors.password}</p>
-              )} */}
+              {errors.password && (
+                <p className="mt-1 text-sm text-red-600 absolute">{errors.password}</p>
+              )}
             </div>
           </div>
 
@@ -159,7 +218,7 @@ const Register = () => {
                       text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
                      `}
           >
-            {/* {loading ? 'Registering...' : 'Create Account'} */}Create Account
+            {loading ? 'Registering...' : 'Create Account'}
           </button>
 
           <div className="text-center text-sm text-gray-600">
