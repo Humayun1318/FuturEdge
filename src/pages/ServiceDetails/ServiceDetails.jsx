@@ -65,7 +65,7 @@ const ServiceDetails = () => {
   if (!service) return <p>Loading service details...</p>;
 
   return (
-    <div className="max-w-10/12 mx-auto rounded-xl  overflow-hidden  my-24">
+    <div className="max-w-10/12 mx-auto rounded-xl  overflow-hidden  my-24 ">
       {/* service card */}
       <section className="md:flex ">
         {/* Image Section */}

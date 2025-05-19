@@ -66,7 +66,7 @@ const Profile = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 relative">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 relative pt-24">
       {/* Main Content - Becomes dim when modal is open */}
       <div
         className={`max-w-3xl mx-auto bg-white rounded-2xl border-0 overflow-hidden transition-all duration-200 ${

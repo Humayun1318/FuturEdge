@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div className="">
       {/* Home Banner */}
-      <section className="bg-[#244135]">
+      <section className="bg-[#244135] pt-24">
         <div className="px-6 pt-4 pb-16">
           <Banner></Banner>
         </div>
