@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AuthContext } from "../Context";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import {auth } from "../../firebase"
 
 
