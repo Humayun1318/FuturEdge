@@ -1,7 +1,7 @@
 
 import { useContext, useEffect, useState } from 'react';
 import { FaStar, FaClock, FaUserGraduate, FaComment, FaMoneyBillWave, FaUserCircle } from 'react-icons/fa';
-import { useFetcher, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import { FDataContext } from '../../context/Context';
 
 

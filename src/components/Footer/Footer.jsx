@@ -3,7 +3,7 @@ import { FaRegCopyright } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div id="footer" className="my-24">
+    <div id="footer" className="py-24">
       {/* footer link */}
       <section className=" lg:flex justify-between space-y-6 lg:space-y-0">
         <div className="lg:w-[20%] text-center lg:text-start">

@@ -7,7 +7,7 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/Context";
 import { toast } from "react-toastify";
 
@@ -18,14 +18,15 @@ const Login = () => {
   // const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const { signInUserWithEmailPassword, setUser, loading, setLoading } =
     useContext(AuthContext);
   const isDisabled = !formData.email || !formData.password || loading;
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
-    console.log("hello form login");
+
     const email = e.target.email.value;
     const password = e.target.password.value;
 
@@ -40,7 +41,7 @@ const Login = () => {
       .then((re) => {
         setUser(re.user);
         toast.success("Login successfully!", { position: "top-center" });
-        navigate("/");
+        navigate(from, { replace: true });
         setLoading(false);
       })
       .catch((err) => {
@@ -50,7 +51,6 @@ const Login = () => {
         setLoading(false);
       });
   };
-  console.log(formData);
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-2xl shadow-xl">
@@ -187,12 +187,12 @@ const Login = () => {
           <button
             type="submit"
             disabled={isDisabled}
-            className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md cursor-pointer
-                      text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+            className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md 
+                      text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
                       ${
                         isDisabled
                           ? "bg-gray-400 cursor-not-allowed"
-                          : "bg-blue-600 hover:bg-blue-700"
+                          : "bg-blue-600 hover:bg-blue-900 cursor-pointer"
                       }`}
           >
             {loading ? "Signing in..." : "Sign in"}

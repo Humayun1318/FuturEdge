@@ -7,6 +7,7 @@ import Profile from "./pages/Profile/Profile";
 import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 import USPDetails from "./pages/USPCardDetails/USPDetails";
 import PrivateRoute from "./private/PrivateRoute";
+import NotFoundPage from "./pages/notFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -44,13 +45,13 @@ const router = createBrowserRouter([
       {
         path: "auth/register",
         element: <Register></Register>,
-      }
-    ]
+      },
+    ],
   },
   {
     path: "*",
-    element: <h1>Oppps!!!!</h1>
-  }
-])
+    element: <NotFoundPage />,
+  },
+]);
 
 export default router;

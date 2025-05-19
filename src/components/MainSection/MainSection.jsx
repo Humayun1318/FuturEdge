@@ -5,7 +5,7 @@ const MainSection = () => {
   return (
     <div className='font-roboto-body'>
       <Outlet className=""></Outlet>
-      <p className=''>Outlet er Niche</p>
+      {/* <p className=''>Outlet er Niche</p> */}
     </div>
   );
 };

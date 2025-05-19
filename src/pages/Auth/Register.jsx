@@ -47,8 +47,6 @@ const Register = () => {
       setErrors({ ...errors, name: "Name must be at least 5 characters!" });
       setLoading(false);
       return;
-    } else if (name.length > 5) {
-      setErrors({ ...errors, name: "" });
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -59,13 +57,34 @@ const Register = () => {
 
     if (password?.length < 6) {
       setLoading(false);
-      return setErrors({ ...errors, password: "password must be at least 6!" });
+      return setErrors({
+        ...errors,
+        password: "Password must be at least 6 characters long.",
+      });
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      setLoading(false);
+      return setErrors({
+        ...errors,
+        password: "Password must include an uppercase letter.",
+      });
+    }
+
+    if (!/[a-z]/.test(password)) {
+      setLoading(false);
+      return setErrors({
+        ...errors,
+        password: "Password must include a lowercase letter.",
+      });
     }
 
     createUserWithEmailPassword(email, password)
       .then((re) => {
         setUser(re.user);
-        toast.success("User created successfully!!",{ position: "top-center" });
+        toast.success("User created successfully!!", {
+          position: "top-center",
+        });
         navigate("/");
         setLoading(false);
       })
@@ -246,7 +265,11 @@ const Register = () => {
                     ...registerFormData,
                     password: e.target.value,
                   });
-                  if (e.target.value.length >= 6) {
+                  const isValidLength = e.target.value.length >= 6;
+                  const hasUppercase = /[A-Z]/.test(e.target.value);
+                  const hasLowercase = /[a-z]/.test(e.target.value);
+
+                  if (isValidLength && hasUppercase && hasLowercase) {
                     setErrors((prev) => ({ ...prev, password: "" }));
                   }
                 }}
@@ -287,11 +310,11 @@ const Register = () => {
             type="submit"
             disabled={isDisabled}
             className={` w-full flex justify-center py-2 px-4 border border-transparent rounded-md 
-                      text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                      text-white focus:outline-none focus:ring-2 focus:ring-offset-2 
                      ${
                        isDisabled
                          ? "bg-gray-400 cursor-not-allowed"
-                         : "bg-blue-600 hover:bg-blue-700 focus:ring-blue-500"
+                         : "bg-blue-600 hover:bg-blue-900 focus:ring-blue-500 cursor-pointer"
                      }`}
           >
             {loading ? "Registering..." : "Create Account"}

@@ -1,9 +1,7 @@
-
 import { ToastContainer } from "react-toastify";
 import Footer from "../components/Footer/Footer";
-import NavBar from "../components/Header/NavBar";
 import MainSection from "../components/MainSection/MainSection";
-
+import NavBar from "../components/Header/Navbar";
 
 const MainLayout = () => {
   return (
@@ -19,7 +17,7 @@ const MainLayout = () => {
       </main>
 
       <footer className=" bg-[#f1f7fa]">
-        <section className="border border-green-500 w-11/12 mx-auto">
+        <section className=" w-11/12 mx-auto">
           <Footer></Footer>
         </section>
       </footer>

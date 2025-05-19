@@ -18,7 +18,7 @@ const USPDetails = () => {
   }, [id, data])
 
   if (!uspCardDetails) {
-    return <p>Loading form usp details card</p>
+    return <p>Loading  usp details card</p>
   }
 
   const { title, description, impact, benefits, applicability, icon } = uspCardDetails;
