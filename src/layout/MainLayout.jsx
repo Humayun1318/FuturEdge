@@ -12,7 +12,7 @@ const MainLayout = () => {
         </nav>
       </header>
 
-      <main className="relative -top-1">
+      <main className="relative ">
         <MainSection></MainSection>
       </main>
 

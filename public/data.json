@@ -76,7 +76,63 @@
       "duration": "18-12-24 3-4pm",
       "counselor": "Olivia Martinez",
       "rating": 4.9
+    },
+     {
+      "id": 8,
+      "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=[WIDTH]&h=[HEIGHT]&auto=format&fit=crop",
+      "service_name": "LinkedIn Profile Optimization",
+      "category": "Online",
+      "description": "Transform your LinkedIn profile into a powerful career tool with our optimization service. We enhance your headline, summary, and experience sections with industry-specific keywords, compelling storytelling, and professional formatting.",
+      "pricing": "$35 per optimization",
+      "duration": "Available anytime",
+      "counselor": "Daniel Lee",
+      "rating": 4.8
+    },
+    {
+      "id": 9,
+      "image": "https://images.pexels.com/photos/7176030/pexels-photo-7176030.jpeg?w=[WIDTH]&h=[HEIGHT]&auto=compress&cs=tinysrgb",
+      "service_name": "Career Transition Coaching",
+      "category": "Online/Offline",
+      "description": "Switching careers? Our transition coaching helps you navigate industry changes, transferable skills, and rebranding strategies. Ideal for professionals moving into tech, management, or creative roles.",
+      "pricing": "$75 per session",
+      "duration": "20-12-24 7-8pm",
+      "counselor": "Priya Patel",
+      "rating": 4.7
+    },
+    {
+      "id": 10,
+      "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=[WIDTH]&h=[HEIGHT]&auto=format&fit=crop",
+      "service_name": "Interview Skill Bootcamp",
+      "category": "Group",
+      "description": "A 3-day intensive bootcamp covering technical interviews, case studies, and STAR method responses. Perfect for FAANG/fortune 500 aspirants.",
+      "pricing": "$150 per bootcamp",
+      "duration": "22-12-24 to 24-12-24 (3-6pm daily)",
+      "counselor": "James Wilson",
+      "rating": 4.9
+    },
+    {
+      "id": 11,
+      "image": "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?w=[WIDTH]&h=[HEIGHT]&auto=compress&cs=tinysrgb",
+      "service_name": "Entrepreneurship Guidance",
+      "category": "Online",
+      "description": "For aspiring founders, this service covers business ideation, pitch deck creation, and funding strategies. Learn how to validate your startup idea and navigate early-stage challenges.",
+      "pricing": "$90 per session",
+      "duration": "05-01-25 6-7pm",
+      "counselor": "Sarah Khan",
+      "rating": 4.8
+    },
+    {
+      "id": 12,
+      "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=[WIDTH]&h=[HEIGHT]&auto=format&fit=crop",
+      "service_name": "Remote Work Readiness",
+      "category": "Online",
+      "description": "Master the skills needed to thrive in remote roles. Learn time management, digital communication best practices, and tools like Slack/Asana.",
+      "pricing": "$55 per session",
+      "duration": "08-01-25 5-6pm",
+      "counselor": "Ryan Carter",
+      "rating": 4.6
     }
+    
   ],
   "USP": [
     {

@@ -5,6 +5,7 @@ import { FDataContext } from "../../context/Context";
 import USPCard from "../../components/USPCard/USPCard";
 import ServiceCard from "../../components/ServiceCard/ServiceCard";
 import SliderCard from "../../components/SliderCard/SliderCard";
+import AboutUs from "../../components/AboutUs/AboutUs";
 
 const Home = () => {
   const fakeData = useContext(FDataContext);
@@ -12,10 +13,17 @@ const Home = () => {
   const [UniquePCards, setUniquePCards] = useState(
     fakeData?.data?.USP.slice(0, 5) || []
   );
+  const [services, setServices] = useState(
+    fakeData?.data?.services.slice(0, 6) || []
+  );
 
   const handleUSP = () => {
     const UCard = fakeData?.data?.USP;
     setUniquePCards([...UCard]);
+  };
+  const handleServicesCard = () => {
+    const serviceCard = fakeData?.data?.services;
+    setServices([...serviceCard]);
   };
 
   return (
@@ -65,8 +73,8 @@ const Home = () => {
       </section>
 
       {/*  Services */}
-      <section className="pt-96 pb-32 bg-[#e9f3f0]">
-        <div className="w-11/12 mx-auto" id="service">
+      <section className="pt-96 pb-32 bg-[#e9f3f0]" id="service">
+        <div className="w-11/12 mx-auto">
           <div className="text-center space-y-6">
             <h2 className="font-lora-heading text-2xl lg:text-4xl font-bold">
               Services Offered By FuturEdge
@@ -78,11 +86,27 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            {fakeData?.data?.services.map((service) => (
+            {services.map((service) => (
               <ServiceCard key={service.id} service={service}></ServiceCard>
             ))}
           </div>
+
+          <div className="text-center mt-12">
+            <button
+              className={`bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full transition-colors ${
+                services.length > 6 ? "hidden" : ""
+              }`}
+              onClick={() => handleServicesCard()}
+            >
+              See All Services
+            </button>
+          </div>
         </div>
+      </section>
+
+      {/* About us */}
+      <section id="about">
+        <AboutUs></AboutUs>
       </section>
     </div>
   );

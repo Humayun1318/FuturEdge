@@ -24,7 +24,7 @@ const Profile = () => {
   });
   const [formData, setFormData] = useState({
     displayName: "",
-    photoURL: "",
+    photoURL: null,
   });
 
   useEffect(() => {
@@ -44,12 +44,18 @@ const Profile = () => {
         field === "name" ? formData.displayName : user.displayName,
         field === "photo" ? formData.photoURL : user.photoURL
       );
+
       toast.success(
-        `${field === "name" ? "Name" : "Photo"} updated successfully!`
+        `${field === "name" ? "Name" : "Photo"} updated successfully!`,
+        {
+          position: "top-center",
+        }
       );
       setEditMode({ ...editMode, [field]: false });
     } catch (error) {
-      toast.error(`Error updating ${field}: ${error.message}`);
+      toast.error(`Error updating ${field}: ${error.message}`, {
+        position: "top-center",
+      });
     }
   };
 

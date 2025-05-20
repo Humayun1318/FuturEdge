@@ -58,7 +58,7 @@ const NavBar = () => {
           </div>
           <a className="  text-xl font-bold ml-2 font-lora-heading" href="/">
             <h3>
-              <span className="text-#007BFF">Futur</span>{" "}
+              <span className="">Futur</span>{" "}
               <span className="text-[#28A745]">Edge</span>
             </h3>
           </a>

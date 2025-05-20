@@ -26,7 +26,8 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const { createUserWithEmailPassword, setUser } = useContext(AuthContext);
+  const { createUserWithEmailPassword, setUser, updateProfileInfo } =
+    useContext(AuthContext);
   const isDisabled =
     !registerFormData.name ||
     !registerFormData.email ||
@@ -81,12 +82,30 @@ const Register = () => {
 
     createUserWithEmailPassword(email, password)
       .then((re) => {
-        setUser(re.user);
-        toast.success("User created successfully!!", {
-          position: "top-center",
-        });
-        navigate("/");
-        setLoading(false);
+        if (photoURL && photoURL.length) {
+          updateProfileInfo(name, photoURL)
+            .then(() => {
+              setUser(re.user); 
+              toast.success("User created successfully!!", {
+                position: "top-center",
+              });
+              navigate("/");
+              setLoading(false);
+            })
+            .catch((err) => {
+              toast.error(err ? err.message : "Failed to register the user!", {
+                position: "top-center",
+              });
+              setLoading(false);
+            });
+        } else {
+          setUser(re.user);
+          toast.success("User created successfully!!", {
+            position: "top-center",
+          });
+          navigate("/");
+          setLoading(false);
+        }
       })
       .catch((error) => {
         toast.error(error ? error.message : "Failed to register the user!", {
@@ -100,7 +119,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pt-24">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-2xl shadow-xl">
         {/* Header */}
         <div className="text-center">
