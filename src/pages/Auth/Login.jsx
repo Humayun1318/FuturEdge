@@ -20,8 +20,14 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const { signInUserWithEmailPassword, setUser, loading, setLoading } =
-    useContext(AuthContext);
+  const {
+    signInUserWithEmailPassword,
+    setUser,
+    loading,
+    setLoading,
+    signInWithGoogle,
+    signInWithGithub,
+  } = useContext(AuthContext);
   const isDisabled = !formData.email || !formData.password || loading;
 
   const handleSubmitLogin = (e) => {
@@ -51,6 +57,37 @@ const Login = () => {
         setLoading(false);
       });
   };
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((re) => {
+        setUser(re.user);
+        toast.success("Login successfully!", { position: "top-center" });
+        navigate(from, { replace: true });
+        setLoading(false);
+      })
+      .catch((err) => {
+        toast.error(err.message ? err.message : "Login failed, try again!", {
+          position: "top-center",
+        });
+        setLoading(false);
+      });
+  };
+  const handleGitHubProvider = () => {
+    signInWithGithub()
+      .then((re) => {
+        setUser(re.user);
+        toast.success("Login successfully!", { position: "top-center" });
+        navigate(from, { replace: true });
+        setLoading(false);
+      })
+      .catch((err) => {
+        toast.error(err.message ? err.message : "Login failed, try again!", {
+          position: "top-center",
+        });
+        setLoading(false);
+      });
+  };
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pt-24">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-2xl shadow-xl">
@@ -67,6 +104,9 @@ const Login = () => {
         {/* Social Login */}
         <div className="mt-8 grid grid-cols-2 gap-4">
           <button
+            onClick={() => {
+              handleGoogleLogin();
+            }}
             className="w-full flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md 
                        text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer"
             type="button"
@@ -75,6 +115,9 @@ const Login = () => {
             Google
           </button>
           <button
+            onClick={() => {
+              handleGitHubProvider();
+            }}
             className="w-full flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md 
                        text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer"
             type="button"

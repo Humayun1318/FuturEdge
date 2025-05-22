@@ -8,7 +8,7 @@ const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
-  console.log(user);
+ 
 
   const handleLogout = async () => {
     try {

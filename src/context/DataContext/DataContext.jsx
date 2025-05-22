@@ -12,7 +12,7 @@ const DataContext = ({ children }) => {
         setFakeData(data);
         setLoading(false);
       })
-      .catch((err) => console.log("Data Fetch ERROR:", err));
+      .catch((err) => console.warn("Data Fetch ERROR:", err));
   }, []);
 
   if (loading) {
@@ -23,7 +23,6 @@ const DataContext = ({ children }) => {
     loading,
   };
 
-  console.log(dataContext);
   return (
     <FDataContext.Provider value={dataContext}>
       {children}

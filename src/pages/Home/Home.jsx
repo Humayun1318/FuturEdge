@@ -93,7 +93,7 @@ const Home = () => {
 
           <div className="text-center mt-12">
             <button
-              className={`bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full transition-colors ${
+              className={`bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full transition-colors  cursor-pointer ${
                 services.length > 6 ? "hidden" : ""
               }`}
               onClick={() => handleServicesCard()}

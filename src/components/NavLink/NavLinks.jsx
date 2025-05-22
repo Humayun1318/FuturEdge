@@ -1,20 +1,24 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const NavLinks = () => {
+  const location = useLocation();
+
+  const isHome = location.pathname === "/";
+
   return (
     <>
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <a href="#about">About Us</a>
+        <NavLink to={isHome ? "#about" : "/#about"}>About Us</NavLink>
       </li>
       <li>
-        <a href="#service">Services</a>
+        <NavLink to={isHome ? "#service" : "/#service"}>Services</NavLink>
       </li>
       <li>
-        <a href="#footer">Contact Us</a>
+        <NavLink to={isHome ? "#footer" : "/#footer"}>Contact Us</NavLink>
       </li>
     </>
   );

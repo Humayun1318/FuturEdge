@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 const USPCard = ({ SCard }) => {
-  // console.log(SCard.icon);
+ 
 
 
   return (

@@ -10,6 +10,9 @@
   --font-poppins-specialEle: "Poppins",
     sans-serif
 }
-a.active {
+/* a.active {
   background-color: rgba(128, 128, 128, 0.54);
+} */
+html {
+  scroll-behavior: smooth;
 }

@@ -9,7 +9,7 @@ import {
   FaUser,
   FaImage,
 } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/Context";
 import { toast } from "react-toastify";
 
@@ -25,9 +25,14 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-
-  const { createUserWithEmailPassword, setUser, updateProfileInfo } =
-    useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const {
+    createUserWithEmailPassword,
+    setUser,
+    updateProfileInfo,
+    signInWithGoogle,
+  } = useContext(AuthContext);
   const isDisabled =
     !registerFormData.name ||
     !registerFormData.email ||
@@ -85,7 +90,7 @@ const Register = () => {
         if (photoURL && photoURL.length) {
           updateProfileInfo(name, photoURL)
             .then(() => {
-              setUser(re.user); 
+              setUser(re.user);
               toast.success("User created successfully!!", {
                 position: "top-center",
               });
@@ -117,6 +122,21 @@ const Register = () => {
     setRegisterFormData({ name, email, photoURL, password });
     setErrors({});
   };
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((re) => {
+        setUser(re.user);
+        toast.success("Login successfully!", { position: "top-center" });
+        navigate(from, { replace: true });
+        setLoading(false);
+      })
+      .catch((err) => {
+        toast.error(err.message ? err.message : "Login failed, try again!", {
+          position: "top-center",
+        });
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pt-24">
@@ -134,6 +154,9 @@ const Register = () => {
         {/* Social Login */}
         <div className="mt-8 grid grid-cols-2 gap-4">
           <button
+            onClick={() => {
+              handleGoogleLogin();
+            }}
             className="w-full flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md 
                        text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             type="button"

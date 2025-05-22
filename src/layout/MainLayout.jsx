@@ -2,8 +2,23 @@ import { ToastContainer } from "react-toastify";
 import Footer from "../components/Footer/Footer";
 import MainSection from "../components/MainSection/MainSection";
 import NavBar from "../components/Header/Navbar";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const MainLayout = () => {
+  const location = useLocation();
+
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        // Use smooth scroll
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="">
       <header className="  bg-[#244135]">
