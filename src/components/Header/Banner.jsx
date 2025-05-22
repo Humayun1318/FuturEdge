@@ -11,13 +11,16 @@ const Banner = () => {
               Shaping Your Future, One Step Ahead.
             </h1>
             <p className="text-gray-500 text-base">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Exercitationem repellendus eligendi illum incidunt ex sunt beatae
-              magni temporibus excepturi placeat?
+              FutureEdge is your personalized career companion — offering expert
+              insights, tailored guidance, and powerful resources to help you
+              navigate your journey and make confident, informed decisions about
+              your future.
             </p>
 
-            <button className="flex items-center gap-2 bg-[#244135] p-3 font-poppins-specialEle text-lg 
-            font-bold text-white rounded-2xl cursor-pointer">
+            <button
+              className="flex items-center gap-2 bg-[#244135] p-3 font-poppins-specialEle text-lg 
+            font-bold text-white rounded-2xl cursor-pointer"
+            >
               <a href="#service">Get Started</a>
 
               <span>

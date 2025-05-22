@@ -237,7 +237,11 @@ const Login = () => {
           <div className="">
             <div className="text-sm">
               <Link
-                to="/forgot-password"
+                to={`/forgot-password${
+                  formData?.email
+                    ? `?email=${encodeURIComponent(formData?.email)}`
+                    : ""
+                }`}
                 className="font-medium text-blue-600 hover:text-blue-500"
               >
                 Forgot password?

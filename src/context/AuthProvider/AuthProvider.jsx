@@ -5,6 +5,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -30,9 +31,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
   const signInWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
   const signInWithGithub = () => {
+    setLoading(true);
     return signInWithPopup(auth, gitHubProvider);
   };
   const updateProfileInfo = (name, photo) => {
@@ -41,6 +44,10 @@ const AuthProvider = ({ children }) => {
       photoURL: photo,
     });
   };
+
+  const passwordReset =(email)=>{
+    return sendPasswordResetEmail(auth, email);
+  }
 
   const authInfo = {
     user,
@@ -53,6 +60,7 @@ const AuthProvider = ({ children }) => {
     updateProfileInfo,
     signInWithGoogle,
     signInWithGithub,
+    passwordReset,
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {

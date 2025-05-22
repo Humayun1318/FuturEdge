@@ -8,6 +8,7 @@ import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 import USPDetails from "./pages/USPCardDetails/USPDetails";
 import PrivateRoute from "./private/PrivateRoute";
 import NotFoundPage from "./pages/notFound/NotFound";
+import ForgotPassword from "./pages/Forgot-password/Forgot-passord";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "auth/register",
         element: <Register></Register>,
+      },
+      {
+        path: "forgot-password",
+        element: <ForgotPassword></ForgotPassword>,
       },
     ],
   },

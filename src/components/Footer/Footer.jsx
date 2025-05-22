@@ -9,55 +9,140 @@ const Footer = () => {
         <div className="lg:w-[20%] text-center lg:text-start">
           <div className="flex items-center justify-center lg:justify-normal">
             <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+              >
                 <rect width="32" height="32" fill="#244135" />
-                <text x="4" y="24" fontFamily="Lora, sans-serif" fontSize="16" fontWeight="bold" fill="#FFFFFF">FE</text>
+                <text
+                  x="4"
+                  y="24"
+                  fontFamily="Lora, sans-serif"
+                  fontSize="16"
+                  fontWeight="bold"
+                  fill="#FFFFFF"
+                >
+                  FE
+                </text>
               </svg>
             </h3>
             <h3>
-              <svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-                <text x="10" y="35" fontFamily="Lora, sans-serif" fontSize="30" fontWeight="bold" fill="#244135">Futur</text>
-                <text x="100" y="35" fontFamily="Lora, sans-serif" fontSize="30" fontWeight="bold" fill="#244135">Edge</text>
-                <line x1="10" y1="40" x2="180" y2="40" stroke="#FFA500" strokeWidth="3" />
+              <svg
+                width="200"
+                height="50"
+                viewBox="0 0 200 50"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <text
+                  x="10"
+                  y="35"
+                  fontFamily="Lora, sans-serif"
+                  fontSize="30"
+                  fontWeight="bold"
+                  fill="#244135"
+                >
+                  Futur
+                </text>
+                <text
+                  x="100"
+                  y="35"
+                  fontFamily="Lora, sans-serif"
+                  fontSize="30"
+                  fontWeight="bold"
+                  fill="#244135"
+                >
+                  Edge
+                </text>
+                <line
+                  x1="10"
+                  y1="40"
+                  x2="180"
+                  y2="40"
+                  stroke="#FFA500"
+                  strokeWidth="3"
+                />
               </svg>
             </h3>
           </div>
-          <p className="font-roboto-body text-base text-gray-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A vero placeat magni harum dolore ipsum ipsa? Rem, voluptatum distinctio! Aspernatur.</p>
+          <p className="font-roboto-body text-base text-gray-600">
+            Built with React and Firebase, FutureEdge empowers individuals to
+            explore, plan, and pursue their ideal career paths through smart
+            tools, secure access, and real-time support — all in one powerful
+            platform.
+          </p>
           <SocialMediaIcon></SocialMediaIcon>
         </div>
         <div className="lg:w-[70%] sm:grid sm:grid-cols-2 sm:gap-6  lg:flex lg:justify-between ">
           <div className="sm:text-center lg:text-start">
-            <h3 className="font-lora-heading text-base font-semibold mb-3">About</h3>
+            <h3 className="font-lora-heading text-base font-semibold mb-3">
+              About
+            </h3>
             <ul className="text-md font-poppins-specialEle font-normal text-gray-500 space-y-2">
-              <li><a href="">Home</a></li>
-              <li><a href="">About Us</a></li>
-              <li><a href="">Services</a></li>
-              <li><a href="">Contact</a></li>
+              <li>
+                <a href="">Home</a>
+              </li>
+              <li>
+                <a href="">About Us</a>
+              </li>
+              <li>
+                <a href="">Services</a>
+              </li>
+              <li>
+                <a href="">Contact</a>
+              </li>
             </ul>
           </div>
           <div className="sm:text-center lg:text-start">
-            <h3 className="font-lora-heading text-base font-semibold mb-3">Pages</h3>
+            <h3 className="font-lora-heading text-base font-semibold mb-3">
+              Pages
+            </h3>
             <ul className="text-md font-poppins-specialEle font-normal text-gray-500 space-y-2">
-              <li><a href="">Services</a></li>
-              <li><a href="">Register</a></li>
-              <li><a href="">Mission</a></li>
-              <li><a href="">Contact</a></li>
+              <li>
+                <a href="">Services</a>
+              </li>
+              <li>
+                <a href="">Register</a>
+              </li>
+              <li>
+                <a href="">Mission</a>
+              </li>
+              <li>
+                <a href="">Contact</a>
+              </li>
             </ul>
           </div>
           <div className="sm:text-center lg:text-start">
-            <h3 className="font-lora-heading text-base font-semibold mb-3">Resources</h3>
+            <h3 className="font-lora-heading text-base font-semibold mb-3">
+              Resources
+            </h3>
             <ul className="text-md font-poppins-specialEle font-normal text-gray-500 space-y-2">
-              <li><a href="">Get Consultancy</a></li>
-              <li><a href="">Recruiters</a></li>
-              <li><a href="">Contact</a></li>
+              <li>
+                <a href="">Get Consultancy</a>
+              </li>
+              <li>
+                <a href="">Recruiters</a>
+              </li>
+              <li>
+                <a href="">Contact</a>
+              </li>
             </ul>
           </div>
           <div className="sm:text-center lg:text-start">
-            <h3 className="font-lora-heading text-base font-semibold mb-3">Contact Us</h3>
+            <h3 className="font-lora-heading text-base font-semibold mb-3">
+              Contact Us
+            </h3>
             <ul className="text-md font-poppins-specialEle font-normal text-gray-500 space-y-2">
-              <li><a href="">Social Media</a></li>
-              <li><a href="">WhatsApp</a></li>
-              <li><a href="">Email</a></li>
+              <li>
+                <a href="">Social Media</a>
+              </li>
+              <li>
+                <a href="">WhatsApp</a>
+              </li>
+              <li>
+                <a href="">Email</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -67,11 +152,17 @@ const Footer = () => {
       </div>
       <div className="text-md font-poppins-specialEle font-normal text-gray-500 text-center lg:text-start lg:flex">
         <div className="flex-1 mb-4 lg:mb-0">
-          <p className="flex items-center gap-2 justify-center lg:justify-normal"><FaRegCopyright></FaRegCopyright> 2025 All Right Reserved.</p>
+          <p className="flex items-center gap-2 justify-center lg:justify-normal">
+            <FaRegCopyright></FaRegCopyright> 2025 All Right Reserved.
+          </p>
         </div>
         <ul className="sm:flex sm:justify-around lg:justify-between flex-1 ">
-          <li><a href="">Privacy Policy</a></li>
-          <li><a href="">Term & Conditions</a></li>
+          <li>
+            <a href="">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="">Term & Conditions</a>
+          </li>
         </ul>
       </div>
     </div>
