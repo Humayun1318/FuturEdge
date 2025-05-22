@@ -15,8 +15,8 @@ import { auth } from "../../firebase";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const googleProvider = new GoogleAuthProvider()
-  const gitgubProvider = new GithubAuthProvider()
+  const googleProvider = new GoogleAuthProvider();
+  const gitHubProvider = new GithubAuthProvider();
 
   const createUserWithEmailPassword = (email, password) => {
     setLoading(true);
@@ -29,19 +29,18 @@ const AuthProvider = ({ children }) => {
   const signOutUser = () => {
     return signOut(auth);
   };
-  const signInWithGoogle = ()=>{
-    return signInWithPopup(auth, googleProvider)
-  }
-  const signInWithGithub=()=>{
-    return signInWithPopup(auth, gitgubProvider)
-  }
+  const signInWithGoogle = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+  const signInWithGithub = () => {
+    return signInWithPopup(auth, gitHubProvider);
+  };
   const updateProfileInfo = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
   };
-  
 
   const authInfo = {
     user,
@@ -53,7 +52,7 @@ const AuthProvider = ({ children }) => {
     signOutUser,
     updateProfileInfo,
     signInWithGoogle,
-    signInWithGithub
+    signInWithGithub,
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {

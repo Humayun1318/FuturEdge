@@ -88,6 +88,24 @@ const Login = () => {
         setLoading(false);
       });
   };
+  const handleLoginGuesUser = () => {
+    const email = "guestuser@gmail.com";
+    const password = "pcejKpVu8sBUJx4";
+    console.log(email, password);
+    signInUserWithEmailPassword(email, password)
+      .then((re) => {
+        setUser(re.user);
+        toast.success("Login successfully!", { position: "top-center" });
+        navigate(from, { replace: true });
+        setLoading(false);
+      })
+      .catch((err) => {
+        toast.error(err.message ? err.message : "Login failed, try again!", {
+          position: "top-center",
+        });
+        setLoading(false);
+      });
+  };
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pt-24">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-2xl shadow-xl">
@@ -251,6 +269,24 @@ const Login = () => {
             </Link>
           </div>
         </form>
+
+        {/* demo login */}
+        <div>
+          <p className="text-center text-sm text-gray-600 mb-4">
+            If you'd prefer not to use your real credentials, simply click the
+            button below to log in as a guest or demo user.
+          </p>
+          <button
+            onClick={() => {
+              handleLoginGuesUser();
+            }}
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md 
+                      text-white focus:outline-none focus:ring-2 bg-blue-600 hover:bg-blue-900 
+                      cursor-pointer focus:ring-offset-2 focus:ring-blue-500"
+          >
+            Guest Access
+          </button>
+        </div>
       </div>
     </div>
   );

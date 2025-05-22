@@ -4,10 +4,10 @@ import MainSection from "../components/MainSection/MainSection";
 import NavBar from "../components/Header/Navbar";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import AOS from "aos";
 
 const MainLayout = () => {
   const location = useLocation();
-
 
   useEffect(() => {
     if (location.hash) {
@@ -18,6 +18,13 @@ const MainLayout = () => {
       }
     }
   }, [location]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      // once: true, // whether animation should happen only once
+    });
+  }, []);
 
   return (
     <div className="">

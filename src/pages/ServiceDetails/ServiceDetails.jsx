@@ -72,7 +72,12 @@ const ServiceDetails = () => {
   return (
     <div className="max-w-10/12 mx-auto rounded-xl  overflow-hidden  my-24 ">
       {/* service card */}
-      <section className="md:flex ">
+      <section
+        className="md:flex "
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500"
+      >
         {/* Image Section */}
         <div className="md:w-1/3 relative">
           <img
@@ -132,7 +137,11 @@ const ServiceDetails = () => {
       </section>
 
       {/* comment/feedback of this service */}
-      <section className="mt-8 pt-6 border-t border-gray-200">
+      <section
+        className="mt-8 pt-6 border-t border-gray-200"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
         <h3 className="text-xl font-semibold mb-4 flex items-center">
           <FaComment className="mr-2 text-blue-600" />
           Feedback & Comments

@@ -3,17 +3,21 @@ import React from "react";
 const AboutUs = () => {
   return (
     <section className="py-16 px-4 sm:px-8 ">
-      <div className="max-w-4xl mx-auto text-center  p-8">
+      <div
+        className="max-w-4xl mx-auto text-center  p-8"
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+      >
         <h2 className="text-4xl font-bold text-gray-800 mb-6">
           About <span className="text-[#007BFF]">Futur</span>{" "}
           <span className="text-[#28A745]">Edge</span>
         </h2>
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-          Welcome to{" "}
-          <span className="text-[#007BFF]">Futur</span>{" "}
-          <span className="text-[#28A745]">Edge</span> – Your
-          Career Compass. We empower your journey with personalized guidance,
-          expert insights, and the latest tools to shape your future.
+          Welcome to <span className="text-[#007BFF]">Futur</span>{" "}
+          <span className="text-[#28A745]">Edge</span> – Your Career Compass. We
+          empower your journey with personalized guidance, expert insights, and
+          the latest tools to shape your future.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">

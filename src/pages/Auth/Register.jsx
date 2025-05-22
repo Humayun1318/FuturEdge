@@ -32,6 +32,7 @@ const Register = () => {
     setUser,
     updateProfileInfo,
     signInWithGoogle,
+    signInWithGithub,
   } = useContext(AuthContext);
   const isDisabled =
     !registerFormData.name ||
@@ -137,6 +138,21 @@ const Register = () => {
         setLoading(false);
       });
   };
+  const handleGitHubProvider = () => {
+    signInWithGithub()
+      .then((re) => {
+        setUser(re.user);
+        toast.success("Login successfully!", { position: "top-center" });
+        navigate(from, { replace: true });
+        setLoading(false);
+      })
+      .catch((err) => {
+        toast.error(err.message ? err.message : "Login failed, try again!", {
+          position: "top-center",
+        });
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 pt-24">
@@ -165,6 +181,9 @@ const Register = () => {
             Google
           </button>
           <button
+            onClick={() => {
+              handleGitHubProvider();
+            }}
             className="w-full flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md 
                        text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             type="button"

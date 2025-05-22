@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div className="">
       {/* Home Banner */}
-      <section className="bg-[#244135] pt-24">
+      <section className="bg-[#244135] pt-24" data-aos="zoom-in-up">
         <div className="px-6 pt-4 pb-16">
           <Banner></Banner>
         </div>
@@ -60,6 +60,7 @@ const Home = () => {
           className={`${
             UniquePCards.length > 5 ? "lg:grid-cols-4 " : " lg:grid-cols-5 "
           } grid sm:grid-cols-2 gap-6`}
+          data-aos="fade-right"
         >
           {UniquePCards.map((SCard) => (
             <USPCard key={SCard.id} SCard={SCard}></USPCard>
@@ -85,7 +86,10 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
+            
+          >
             {services.map((service) => (
               <ServiceCard key={service.id} service={service}></ServiceCard>
             ))}
