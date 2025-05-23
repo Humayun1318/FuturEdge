@@ -172,4 +172,4 @@ I always welcome contributions! Follow these steps:
 📧 Email: humayunkabir6267@gmail.com  
 🐙 GitHub: [@Humayun1318](https://github.com/Humayun1318)
 
-Thank you for exploring FutureEdge — contributions, feedback, and ideas are always welcome! 🚀
+Thank you for exploring **FutureEdge** — contributions, feedback, and ideas are always welcome! 🚀
