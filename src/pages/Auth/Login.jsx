@@ -91,7 +91,6 @@ const Login = () => {
   const handleLoginGuesUser = () => {
     const email = "guestuser@gmail.com";
     const password = "pcejKpVu8sBUJx4";
-    console.log(email, password);
     signInUserWithEmailPassword(email, password)
       .then((re) => {
         setUser(re.user);

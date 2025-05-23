@@ -6,10 +6,26 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import AOS from "aos";
 
+const sectionTitles = {
+  about: "About Us | FutureEdge",
+  service: "Services | FutureEdge",
+  footer: "Contact Us | FutureEdge",
+};
+
 const MainLayout = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Extract hash from URL
+    const hash = location.hash ? location.hash.substring(1) : "";
+    if (location.pathname === "/") {
+      if (hash && sectionTitles[hash]) {
+        document.title = sectionTitles[hash];
+      } else {
+        document.title = "FutureEdge";
+      }
+    }
+
     if (location.hash) {
       const element = document.getElementById(location.hash.substring(1));
       if (element) {

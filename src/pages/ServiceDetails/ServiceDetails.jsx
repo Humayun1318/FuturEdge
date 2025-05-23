@@ -10,6 +10,7 @@ import {
 import { useParams } from "react-router-dom";
 import { FDataContext } from "../../context/Context";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const ServiceDetails = () => {
   const [service, setService] = useState(null);
@@ -70,135 +71,142 @@ const ServiceDetails = () => {
   if (!service) return <p>Loading service details...</p>;
 
   return (
-    <div className="max-w-10/12 mx-auto rounded-xl  overflow-hidden  my-24 ">
-      {/* service card */}
-      <section
-        className="md:flex "
-        data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1500"
-      >
-        {/* Image Section */}
-        <div className="md:w-1/3 relative">
-          <img
-            src={service.image}
-            alt={service.service_name}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <span className="absolute top-2 right-2 bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">
-            {service.category}
-          </span>
-        </div>
-
-        {/* Details Section */}
-        <div className="md:w-2/3 p-6 h-full">
-          {/* Title and Rating */}
-          <div className="mb-4">
-            <h1 className="text-2xl font-bold text-gray-800 mb-2">
-              {service.service_name}
-            </h1>
-            <div className="flex items-center">
-              {renderRatingStars()}
-              <span className="ml-2 text-gray-600">({service.rating} / 5)</span>
-            </div>
+    <>
+      <Helmet>
+        <title>{service?.service_name} | FutureEdge</title>
+      </Helmet>
+      <div className="max-w-10/12 mx-auto rounded-xl  overflow-hidden  my-24 ">
+        {/* service card */}
+        <section
+          className="md:flex "
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          {/* Image Section */}
+          <div className="md:w-1/3 relative">
+            <img
+              src={service.image}
+              alt={service.service_name}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <span className="absolute top-2 right-2 bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">
+              {service.category}
+            </span>
           </div>
 
-          {/* Description */}
-          <p className="text-gray-600 mb-4">{service.description}</p>
-
-          {/* Key Details Grid */}
-          <div className="space-y-4 mb-6">
-            <div className="flex items-center">
-              <FaMoneyBillWave className="text-green-500 mr-2" />
-              <span className="font-semibold">{service.pricing}</span>
+          {/* Details Section */}
+          <div className="md:w-2/3 p-6 h-full">
+            {/* Title and Rating */}
+            <div className="mb-4">
+              <h1 className="text-2xl font-bold text-gray-800 mb-2">
+                {service.service_name}
+              </h1>
+              <div className="flex items-center">
+                {renderRatingStars()}
+                <span className="ml-2 text-gray-600">
+                  ({service.rating} / 5)
+                </span>
+              </div>
             </div>
-            <div className="flex items-center">
-              <FaClock className="text-blue-500 mr-2" />
-              <span className="font-semibold">{service.duration}</span>
+
+            {/* Description */}
+            <p className="text-gray-600 mb-4">{service.description}</p>
+
+            {/* Key Details Grid */}
+            <div className="space-y-4 mb-6">
+              <div className="flex items-center">
+                <FaMoneyBillWave className="text-green-500 mr-2" />
+                <span className="font-semibold">{service.pricing}</span>
+              </div>
+              <div className="flex items-center">
+                <FaClock className="text-blue-500 mr-2" />
+                <span className="font-semibold">{service.duration}</span>
+              </div>
+              <div className="flex items-center col-span-2">
+                <FaUserGraduate className="text-purple-500 mr-2" />
+                <span className="font-semibold">
+                  Counselor: {service.counselor}
+                </span>
+              </div>
             </div>
-            <div className="flex items-center col-span-2">
-              <FaUserGraduate className="text-purple-500 mr-2" />
-              <span className="font-semibold">
-                Counselor: {service.counselor}
-              </span>
-            </div>
-          </div>
 
-          {/* Action Button */}
-          <button
-            className=" bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 
-          rounded-lg transition-colors duration-200 font-poppins-specialEle cursor-pointer"
-            onClick={() => handleBooking()}
-          >
-            Book This Session
-          </button>
-        </div>
-      </section>
-
-      {/* comment/feedback of this service */}
-      <section
-        className="mt-8 pt-6 border-t border-gray-200"
-        data-aos="fade-up"
-        data-aos-duration="3000"
-      >
-        <h3 className="text-xl font-semibold mb-4 flex items-center">
-          <FaComment className="mr-2 text-blue-600" />
-          Feedback & Comments
-        </h3>
-
-        {/* Comment Input */}
-        <form className="mb-6" onSubmit={handleCommentPost}>
-          <div className="">
-            <textarea
-              value={newComment}
-              onChange={(e) => {
-                setNewComment(e.target.value);
-              }}
-              placeholder="Share your experience or feedback..."
-              className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 text-2xl"
-              rows="3"
-            ></textarea>
-
-            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
-
+            {/* Action Button */}
             <button
-              type="submit"
-              className="mt-3 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200 flex items-center font-poppins-specialEle cursor-pointer"
+              className=" bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 
+          rounded-lg transition-colors duration-200 font-poppins-specialEle cursor-pointer"
+              onClick={() => handleBooking()}
             >
-              <FaComment className="mr-2" />
-              Post Comment
+              Book This Session
             </button>
           </div>
-        </form>
+        </section>
 
-        {/* Comments List */}
-        {comments.length > 0 ? (
-          <div className="space-y-4">
-            {comments.map((comment) => (
-              <div key={comment.id} className=" ">
-                <div className="flex items-start mb-2 bg-gray-50 p-4 rounded-lg">
-                  <FaUserCircle className="text-gray-400 text-xl mr-3" />
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <p className="font-medium">{comment.author}</p>
-                      <p className="text-gray-500 text-sm">
-                        {comment.timestamp}
-                      </p>
+        {/* comment/feedback of this service */}
+        <section
+          className="mt-8 pt-6 border-t border-gray-200"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <h3 className="text-xl font-semibold mb-4 flex items-center">
+            <FaComment className="mr-2 text-blue-600" />
+            Feedback & Comments
+          </h3>
+
+          {/* Comment Input */}
+          <form className="mb-6" onSubmit={handleCommentPost}>
+            <div className="">
+              <textarea
+                value={newComment}
+                onChange={(e) => {
+                  setNewComment(e.target.value);
+                }}
+                placeholder="Share your experience or feedback..."
+                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 text-2xl"
+                rows="3"
+              ></textarea>
+
+              {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+
+              <button
+                type="submit"
+                className="mt-3 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200 flex items-center font-poppins-specialEle cursor-pointer"
+              >
+                <FaComment className="mr-2" />
+                Post Comment
+              </button>
+            </div>
+          </form>
+
+          {/* Comments List */}
+          {comments.length > 0 ? (
+            <div className="space-y-4">
+              {comments.map((comment) => (
+                <div key={comment.id} className=" ">
+                  <div className="flex items-start mb-2 bg-gray-50 p-4 rounded-lg">
+                    <FaUserCircle className="text-gray-400 text-xl mr-3" />
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <p className="font-medium">{comment.author}</p>
+                        <p className="text-gray-500 text-sm">
+                          {comment.timestamp}
+                        </p>
+                      </div>
+                      <p className="mt-1 text-gray-700">{comment.text}</p>
                     </div>
-                    <p className="mt-1 text-gray-700">{comment.text}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-gray-500 text-center py-4">
-            No comments yet. Be the first to share your thoughts!
-          </p>
-        )}
-      </section>
-    </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-500 text-center py-4">
+              No comments yet. Be the first to share your thoughts!
+            </p>
+          )}
+        </section>
+      </div>
+    </>
   );
 };
 
